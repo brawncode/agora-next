@@ -9,8 +9,6 @@ import infoPageCard02 from "@/assets/tenant/uniswap_info_2.png";
 import infoPageCard03 from "@/assets/tenant/uniswap_info_3.png";
 import infoPageCard04 from "@/assets/tenant/uniswap_info_4.png";
 import infoPageHero from "@/assets/tenant/uniswap_info_hero.png";
-import { ProposalGatingType, ProposalType } from "@/app/proposals/draft/types";
-import { ProposalStage as PrismaProposalStage } from "@prisma/client";
 
 export const uniswapTenantUIConfig = new TenantUI({
   title: "Uniswap Agora",
@@ -215,53 +213,6 @@ export const uniswapTenantUIConfig = new TenantUI({
     {
       name: "info/governance-charts",
       enabled: true,
-    },
-    {
-      name: "proposal-lifecycle",
-      enabled: true,
-      config: {
-        stages: [
-          {
-            stage: PrismaProposalStage.DRAFTING,
-            order: 0,
-            isPreSubmission: true,
-          },
-          {
-            stage: PrismaProposalStage.AWAITING_SUBMISSION,
-            order: 1,
-            isPreSubmission: true,
-          },
-          {
-            stage: PrismaProposalStage.PENDING,
-            order: 2,
-            isPreSubmission: false,
-          },
-          {
-            stage: PrismaProposalStage.QUEUED,
-            order: 3,
-            isPreSubmission: false,
-          },
-          {
-            stage: PrismaProposalStage.EXECUTED,
-            order: 4,
-            isPreSubmission: false,
-          },
-        ],
-        proposalTypes: [ProposalType?.BASIC],
-        copy: {
-          helperText: `
-          **1. Request for Comment**
-The Request for Comment Phase is meant to allow the community to digest, comment, and ask questions about a proposal. Prior to moving to Phase 2, give the community at least 7 days to read and comment on the RFC. Please respond to questions in the comments, and take feedback into account in the next iteration of the proposal posted in Phase 2.
-
-**2. Temperature Check**
-The purpose of the Temperature Check is to signal community sentiment on a proposal prior to moving towards an on-chain vote. The poll duration should be set to 5 days, and a majority vote with a 10M UNI yes-vote threshold wins at the end.
-
-**3. Governance Proposal**
-The Governance Proposal is the final step of the governance process. The proposal should incorporate feedback from the Temperature Check and is accompanied by executable on-chain code (if necessary). In order to submit an on-chain Governance proposal, a delegate must have a minimum balance of 2.5M UNI delegated. The voting period lasts 7 days and a majority vote with a 40M UNI yes-vote threshold wins.
-`.trim(),
-        },
-        gatingType: ProposalGatingType?.TOKEN_THRESHOLD,
-      },
     },
   ],
 });
