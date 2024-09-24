@@ -48,10 +48,10 @@ export default function DAOMetricsHeader({ metrics }) {
     return (
       <>
         {createPortal(
-          <div className="sm:min-w-desktop sticky z-50 bottom-10 sm:bottom-0 left-0 flex justify-center">
+          <div className="sm:min-w-desktop sticky z-50 bottom-0 left-0 flex justify-center">
             <div
               className={cn(
-                "flex flex-col sm:flex-row w-full sm:w-[1268px] bg-wash shadow-newDefault",
+                "flex flex-col sm:flex-row w-full sm:w-[1268px] shadow-newDefault",
                 "border-t border-r border-l border-line rounded-tl-2xl rounded-tr-2xl",
                 "text-xs text-secondary font-inter font-medium",
                 `transition-all duration-200 ease-in-out transform ${
@@ -60,7 +60,7 @@ export default function DAOMetricsHeader({ metrics }) {
               )}
             >
               <div
-                className="w-full sm:w-3/5 flex items-center px-6 sm:px-8 gap-8 justify-between sm:justify-start h-10"
+                className="w-full sm:w-3/5 flex items-center px-6 sm:px-8 gap-8 justify-between sm:justify-start h-10 bg-wash rounded-t-2xl sm:rounded-r-none"
                 onClick={() => setVisible(!visible)}
               >
                 <div className="flex gap-6 sm:gap-8">
@@ -103,9 +103,8 @@ export default function DAOMetricsHeader({ metrics }) {
                   />
                 )}
               </div>
-              <div className="block bg-line w-full sm:w-[1px] h-[1px] sm:h-10"></div>
               <div
-                className={`w-full sm:w-2/5 justify-end items-center px-6 sm:px-8 gap-4 h-10 ${
+                className={`w-full sm:w-2/5 justify-start sm:justify-end items-center px-6 sm:px-8 gap-4 h-10 bg-wash border-t border-line sm:border-none sm:rounded-tr-2xl ${
                   hasLinksMobile
                     ? "flex"
                     : hasLinksDesktop
@@ -154,7 +153,7 @@ export default function DAOMetricsHeader({ metrics }) {
                     href={discordLink.url}
                     rel="noreferrer nonopener"
                     target="_blank"
-                    className="hidden sm:inline"
+                    className=""
                   >
                     <Image src={discord} alt={discordLink.title} />
                   </a>
@@ -165,7 +164,7 @@ export default function DAOMetricsHeader({ metrics }) {
                     href={agoraLink.url}
                     rel="noreferrer nonopener"
                     target="_blank"
-                    className="hidden sm:inline"
+                    className=""
                   >
                     {agoraLink.title}
                   </a>

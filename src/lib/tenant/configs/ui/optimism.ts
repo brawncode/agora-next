@@ -63,23 +63,18 @@ export const optimismTenantUIConfig = new TenantUI({
       url: "https://agoraxyz.notion.site/Optimism-Agora-FAQ-3922ac9c66e54a21b5de16be9e0cf79c",
     },
     {
-      name: "changelog",
-      title: "Change log",
-      url: "/changelog",
-    },
-    {
       name: "discord",
       title: "Discord",
       url: "https://discord.gg/vBJkUYBuwX",
     },
     {
       name: "bugs",
-      title: "Report bugs & feedback",
+      title: "Report issues",
       url: "https://app.deform.cc/form/7180b273-7662-4f96-9e66-1eae240a52bc",
     },
     {
       name: "governance-forum",
-      title: "Governance Forum",
+      title: "Governance forum",
       url: "https://gov.optimism.io/",
     },
     {
