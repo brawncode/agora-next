@@ -85,7 +85,7 @@ export default async function RootLayout({
     zIndex: 1000,
   };
 
-  const isTestEnvironment = process.env.NEXT_PUBLIC_AGORA_ENV === 'demo';
+  const isTestEnvironment = process.env.NEXT_PUBLIC_AGORA_DEMO === 'true';
 
   const style = {
     "--primary": primary,
