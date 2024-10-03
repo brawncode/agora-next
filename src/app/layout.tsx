@@ -74,7 +74,7 @@ export default async function RootLayout({
       ui?.favicon?.["shortcut-icon"] || defaultFavicons["shortcut-icon"],
   };
 
-  const bannerStyle = {
+  const bannerStyle : React.CSSProperties = {
     backgroundColor: 'yellow',
     color: 'black',
     padding: '10px',
