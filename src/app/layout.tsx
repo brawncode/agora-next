@@ -77,14 +77,14 @@ export default async function RootLayout({
   const bannerStyle: React.CSSProperties = {
     backgroundColor: "red",
     color: "black",
-    padding: "10px",
+    padding: "2px",
     textAlign: "center",
     fontWeight: "bold",
-    position: "fixed", // Fixes the banner at the top of the page
+    position: "sticky", // Fixes the banner at the top of the page
     top: 0,
     width: "100%", // Ensure the banner spans the full width
     zIndex: 9999, // High enough z-index to stay on top of other elements
-    height: "30px",
+    height: "25px",
   };
 
   const isTestEnvironment = process.env.NEXT_PUBLIC_AGORA_DEMO === "true";
