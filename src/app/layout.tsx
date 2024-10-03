@@ -74,18 +74,19 @@ export default async function RootLayout({
       ui?.favicon?.["shortcut-icon"] || defaultFavicons["shortcut-icon"],
   };
 
-  const bannerStyle : React.CSSProperties = {
-    backgroundColor: 'yellow',
-    color: 'black',
-    padding: '10px',
-    textAlign: 'center',
-    fontWeight: 'bold',
-    position: 'sticky',
+  const bannerStyle: React.CSSProperties = {
+    backgroundColor: "red",
+    color: "black",
+    padding: "10px",
+    textAlign: "center",
+    fontWeight: "bold",
+    position: "fixed", // Fixes the banner at the top of the page
     top: 0,
-    zIndex: 1000,
+    width: "100%", // Ensure the banner spans the full width
+    zIndex: 9999, // High enough z-index to stay on top of other elements
   };
 
-  const isTestEnvironment = process.env.NEXT_PUBLIC_AGORA_DEMO === 'true';
+  const isTestEnvironment = process.env.NEXT_PUBLIC_AGORA_DEMO === "true";
 
   const style = {
     "--primary": primary,
