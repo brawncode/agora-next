@@ -74,6 +74,19 @@ export default async function RootLayout({
       ui?.favicon?.["shortcut-icon"] || defaultFavicons["shortcut-icon"],
   };
 
+  const bannerStyle = {
+    backgroundColor: 'yellow',
+    color: 'black',
+    padding: '10px',
+    textAlign: 'center',
+    fontWeight: 'bold',
+    position: 'sticky',
+    top: 0,
+    zIndex: 1000,
+  };
+
+  const isTestEnvironment = process.env.NEXT_PUBLIC_AGORA_ENV === 'demo';
+
   const style = {
     "--primary": primary,
     "--secondary": secondary,
@@ -123,6 +136,13 @@ export default async function RootLayout({
         />
         <meta name="theme-color" content="#000" />
       </head>
+
+      {isTestEnvironment && (
+        <div style={bannerStyle}>
+          <h1>This is a shared demo environment.</h1>
+        </div>
+      )}
+
       <ClientLayout>
         <Header />
         {children}
