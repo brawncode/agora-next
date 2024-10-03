@@ -80,7 +80,7 @@ export default async function RootLayout({
     padding: "2px",
     textAlign: "center",
     fontWeight: "bold",
-    position: "sticky", // Fixes the banner at the top of the page
+    position: "fixed", // Fixes the banner at the top of the page
     top: 0,
     width: "100%", // Ensure the banner spans the full width
     zIndex: 9999, // High enough z-index to stay on top of other elements
