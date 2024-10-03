@@ -84,6 +84,7 @@ export default async function RootLayout({
     top: 0,
     width: "100%", // Ensure the banner spans the full width
     zIndex: 9999, // High enough z-index to stay on top of other elements
+    height: "30px",
   };
 
   const isTestEnvironment = process.env.NEXT_PUBLIC_AGORA_DEMO === "true";
@@ -144,11 +145,14 @@ export default async function RootLayout({
         </div>
       )}
 
-      <ClientLayout>
-        <Header />
-        {children}
-        <DAOMetricsHeader metrics={metrics} />
-      </ClientLayout>
+      <div style={{ paddingTop: isTestEnvironment ? "50px" : "0px" }}>
+        <ClientLayout>
+          <Header />
+          {children}
+          <DAOMetricsHeader metrics={metrics} />
+        </ClientLayout>
+      </div>
+
       {ui.googleAnalytics && <GoogleAnalytics gaId={ui.googleAnalytics} />}
     </html>
   );
