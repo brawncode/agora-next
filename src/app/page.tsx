@@ -49,9 +49,12 @@ export async function generateMetadata() {
   };
 }
 
-async function Home() {
+async function Home({
+  searchParams,
+}: {
+  searchParams: { filter?: string; sort?: string };
+}) {
   const { ui } = Tenant.current();
-
   if (!ui.toggle("proposals")) {
     return <div>Route not supported for namespace</div>;
   }
@@ -64,9 +67,15 @@ async function Home() {
       <Suspense fallback={<ProposalListContainerSkeleton />}>
         {/* TODO: needs my vote as filter to all proposals table? */}
         <ProposalListContainer
-          allProposalsListElement={<AllProposalList />}
-          draftProposalsListElement={<DraftProposalList />}
-          myDraftProposalsListElement={<MyDraftProposalList />}
+          allProposalsListElement={
+            <AllProposalList searchParams={searchParams} />
+          }
+          draftProposalsListElement={
+            <DraftProposalList searchParams={searchParams} />
+          }
+          myDraftProposalsListElement={
+            <MyDraftProposalList searchParams={searchParams} />
+          }
           governanceCalendar={governanceCalendar}
         />
       </Suspense>
