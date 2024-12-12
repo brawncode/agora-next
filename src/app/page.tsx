@@ -1,12 +1,15 @@
 import { fetchGovernanceCalendar as apiFetchGovernanceCalendar } from "@/app/api/common/governanceCalendar/getGovernanceCalendar";
 import Hero from "@/components/Hero/Hero";
 import Tenant from "@/lib/tenant/tenant";
-import ProposalListContainer from "@/components/Proposals/ProposalsList/ProposalListContainer";
+import ProposalListContainer, {
+  ProposalListContainerSkeleton,
+} from "@/components/Proposals/ProposalsList/ProposalListContainer";
 import DraftProposalList from "@/components/Proposals/ProposalsList/DraftProposalList";
 import MyDraftProposalList from "@/components/Proposals/ProposalsList/MyDraftProposalList";
 import AllProposalList from "@/components/Proposals/ProposalsList/AllProposalList";
 import { Suspense } from "react";
-import CurrentGovernanceStage from "@/components/Proposals/CurrentGovernanceStage/CurrentGovernanceStage";
+
+// Revalidate cache every 60 seconds
 
 // Revalidate cache every 60 seconds
 export const revalidate = 60;
@@ -58,7 +61,7 @@ async function Home() {
   return (
     <div className="flex flex-col">
       <Hero />
-      <Suspense fallback={<div>Loading...</div>}>
+      <Suspense fallback={<ProposalListContainerSkeleton />}>
         {/* TODO: needs my vote as filter to all proposals table? */}
         <ProposalListContainer
           allProposalsListElement={<AllProposalList />}

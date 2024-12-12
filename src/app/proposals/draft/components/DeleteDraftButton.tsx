@@ -40,7 +40,7 @@ export const DeleteDraftProposalDialog = ({
   const [isHovering, setIsHovering] = useState(false);
   return (
     <div>
-      <div className="flex items-center gap-2 bg-tertiary/5 rounded-lg relative overflow-y-hidden py-4">
+      <div className="flex items-center gap-2 bg-tertiary/5 rounded-lg relative overflow-y-hidden py-4 mt-2">
         <div className="absolute w-full h-full bg-[url('/images/grid.svg')]"></div>
         <div className="mt-2 relative block h-[85px] w-[85px] mx-auto">
           <Image
@@ -58,7 +58,7 @@ export const DeleteDraftProposalDialog = ({
       <p className="text-secondary mt-2 font-normal">
         This action cannot be undone.
       </p>
-      <div className="flex flex-col items-center gap-1 mt-4">
+      <div className="flex flex-col items-center gap-2 mt-4">
         <UpdatedButton
           type="secondary"
           fullWidth
