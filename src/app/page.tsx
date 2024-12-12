@@ -4,12 +4,10 @@ import Tenant from "@/lib/tenant/tenant";
 import ProposalListContainer, {
   ProposalListContainerSkeleton,
 } from "@/components/Proposals/ProposalsList/ProposalListContainer";
-import DraftProposalList from "@/components/Proposals/ProposalsList/DraftProposalList";
-import MyDraftProposalList from "@/components/Proposals/ProposalsList/MyDraftProposalList";
 import AllProposalList from "@/components/Proposals/ProposalsList/AllProposalList";
 import { Suspense } from "react";
-
-// Revalidate cache every 60 seconds
+import DraftProposalList from "@/components/Proposals/ProposalsList/DraftProposalList";
+import MyDraftProposalListServer from "@/components/Proposals/ProposalsList/MyDraftProposalListServer";
 
 // Revalidate cache every 60 seconds
 export const revalidate = 60;
@@ -74,7 +72,7 @@ async function Home({
             <DraftProposalList searchParams={searchParams} />
           }
           myDraftProposalsListElement={
-            <MyDraftProposalList searchParams={searchParams} />
+            <MyDraftProposalListServer searchParams={searchParams} />
           }
           governanceCalendar={governanceCalendar}
         />
